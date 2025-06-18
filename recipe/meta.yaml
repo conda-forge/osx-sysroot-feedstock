@@ -1,32 +1,30 @@
-{% set name = "osx-sysroot" %}
-{% set version = "1" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: osx-sysroot
+  version: {{ _MACOSX_DEPLOYMENT_TARGET_ }}
 
 build:
-  number: 2
-  {% if cross_target_platform == "osx-arm64" and _MACOSX_DEPLOYMENT_TARGET_[0:2]|int < 11 %}
-  skip: True
-  {% endif %}
+  number: 0
+  skip: True  # [(not osx and aarch64) or _MACOSX_DEPLOYMENT_TARGET_.split(".")[0]|int < 11]
 
 outputs:
   - name: macosx_deployment_target_{{ cross_target_platform }}
-    version: "{{ _MACOSX_DEPLOYMENT_TARGET_ }}"
     script: build_mdt.sh
     build:
       noarch: generic
+      track_features:
+        - sysroot_{{ cross_target_platform }}
       run_exports:
         strong:
           - __osx >={{ _MACOSX_DEPLOYMENT_TARGET_ }}
     test:
       commands:
-        - "[[ ${MACOSX_DEPLOYMENT_TARGET} == '{{ _MACOSX_DEPLOYMENT_TARGET_ }}' ]]"
+        - if [[ ${MACOSX_DEPLOYMENT_TARGET} != "{{ _MACOSX_DEPLOYMENT_TARGET_ }}" ]]; then exit 1; fi
+        - if [[ ${CONDA_BUILD_SYSROOT} != "{{ OSX_SDK_DIR }}/MacOSX${MACOSX_DEPLOYMENT_TARGET}.sdk" ]]; then exit 2; fi
+        - if [[ ${SDKROOT} != "${CONDA_BUILD_SYSROOT}" ]]; then exit 3; fi
 
 about:
   home: https://github.com/conda-forge/osx-sysroot-feedstock
-  summary: metapackage to set the MACOSX_DEPLOYMENT_TARGET
+  summary: Metapackage to set the MACOSX_DEPLOYMENT_TARGET environment variable.
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
