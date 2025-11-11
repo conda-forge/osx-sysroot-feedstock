@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 2
+  number: 3
   {% if cross_target_platform == "osx-arm64" and _MACOSX_DEPLOYMENT_TARGET_[0:2]|int < 11 %}
   skip: True
   {% endif %}
