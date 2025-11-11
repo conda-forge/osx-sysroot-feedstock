@@ -144,6 +144,14 @@ jobs:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_14.5cross_target_platformosx-arm64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64__MACOSX_DEPLOYMENT_TARGET_15.5cross_target_platformosx-64:
+        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_15.5cross_target_platformosx-64
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64__MACOSX_DEPLOYMENT_TARGET_15.5cross_target_platformosx-arm64:
+        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_15.5cross_target_platformosx-arm64
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
   variables: {}
 

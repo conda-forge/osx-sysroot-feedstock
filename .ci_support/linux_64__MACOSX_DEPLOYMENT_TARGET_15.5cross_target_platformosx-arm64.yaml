@@ -1,5 +1,5 @@
 _MACOSX_DEPLOYMENT_TARGET_:
-- '10.11'
+- '15.5'
 channel_sources:
 - conda-forge
 channel_targets:

@@ -1,7 +1,5 @@
 _MACOSX_DEPLOYMENT_TARGET_:
 - '13.0'
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
