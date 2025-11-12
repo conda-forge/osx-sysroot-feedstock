@@ -1,7 +1,7 @@
 #!/bin/bash
 
-find "${RECIPE_DIR}" -name "activate-sdkroot-env.sh" -exec cp {} . \;
-find "${RECIPE_DIR}" -name "deactivate-sdkroot-env.sh" -exec cp {} . \;
+find "${RECIPE_DIR}" -name "activate-sdkroot_env.sh" -exec cp {} . \;
+find "${RECIPE_DIR}" -name "deactivate-sdkroot_env.sh" -exec cp {} . \;
 
 find . -name "activate-sdkroot_env.sh" -exec sed -i.bak "s|@MACOSX_DEPLOYMENT_TARGET@|${_MACOSX_DEPLOYMENT_TARGET_}|g" "{}" \;
 find . -name "activate-sdkroot_env.sh" -exec sed -i.bak "s|@PLATFORM@|${cross_target_platform//-/_}|g" "{}" \;
