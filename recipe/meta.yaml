@@ -1,12 +1,13 @@
 {% set name = "osx-sysroot" %}
 {% set version = "1" %}
+{% set build = "2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 build:
-  number: 2
+  number: {{ build }}
   {% if cross_target_platform == "osx-arm64" and _MACOSX_DEPLOYMENT_TARGET_[0:2]|int < 11 %}
   skip: True
   {% endif %}
@@ -23,6 +24,17 @@ outputs:
     test:
       commands:
         - "[[ ${MACOSX_DEPLOYMENT_TARGET} == '{{ _MACOSX_DEPLOYMENT_TARGET_ }}' ]]"
+  - name: sdkroot_env_{{ cross_target_platform }}
+    version: "{{ _MACOSX_DEPLOYMENT_TARGET_ }}"
+    script: build_sdkroot_env.sh
+    build:
+      noarch: generic
+    test:
+      requires:
+        - macosx_deployment_target_{{ cross_target_platform }} {{ _MACOSX_DEPLOYMENT_TARGET_ }} *_{{ build }}
+      commands:
+        - "[[ ${SDKROOT} == ${CONDA_BUILD_SYSROOT} ]]"
+        - echo {{ MACOSX_SDK_VERSION }}
 
 about:
   home: https://github.com/conda-forge/osx-sysroot-feedstock
