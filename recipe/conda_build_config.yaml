@@ -21,3 +21,7 @@ _MACOSX_DEPLOYMENT_TARGET_:
 cross_target_platform:
   - osx-64
   - osx-arm64
+
+# dummy value for SDK to be downloaded
+MACOSX_SDK_VERSION:
+- 11.0
