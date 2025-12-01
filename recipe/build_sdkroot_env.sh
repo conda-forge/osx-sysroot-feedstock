@@ -8,5 +8,5 @@ find . -name "activate-sdkroot_env.sh" -exec sed -i.bak "s|@PLATFORM@|${cross_ta
 find . -name "activate-sdkroot_env.sh.bak" -exec rm "{}" \;
 
 mkdir -p "${PREFIX}"/etc/conda/{de,}activate.d/
-cp "${SRC_DIR}"/activate-sdkroot_env.sh "${PREFIX}"/etc/conda/activate.d/activate_"${PKG_NAME}".sh
-cp "${SRC_DIR}"/deactivate-sdkroot_env.sh "${PREFIX}"/etc/conda/deactivate.d/deactivate_"${PKG_NAME}".sh
+cp "${SRC_DIR}"/activate-sdkroot_env.sh "${PREFIX}"/etc/conda/activate.d/activate_aaaa_"${PKG_NAME}".sh
+cp "${SRC_DIR}"/deactivate-sdkroot_env.sh "${PREFIX}"/etc/conda/deactivate.d/deactivate_aaaa_"${PKG_NAME}".sh
