@@ -1,0 +1,39 @@
+schema_version: 1
+
+context:
+  name: osx-sysroot
+  version: 1
+
+recipe:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+build:
+  number: 2
+  skip: true
+
+outputs:
+  - package:
+      name: macosx_deployment_target_${{ cross_target_platform }}
+      version: ${{ _MACOSX_DEPLOYMENT_TARGET_ }}
+    build:
+      noarch: generic
+    requirements:
+      run_exports:
+        strong:
+          - __osx >=${{ _MACOSX_DEPLOYMENT_TARGET_ }}
+    tests:
+      - script:
+          - echo 1
+    script: build_mdt.sh
+
+about:
+  summary: metapackage to set the MACOSX_DEPLOYMENT_TARGET
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/conda-forge/osx-sysroot-feedstock
+
+extra:
+  recipe-maintainers:
+    - beckermr
+    - xhochy

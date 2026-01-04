@@ -29,6 +29,8 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-macosx__deployment__target__osx--64-green.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/macosx_deployment_target_osx-64.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/macosx_deployment_target_osx-64.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/macosx_deployment_target_osx-64.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-64) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-macosx__deployment__target__osx--arm64-green.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-arm64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/macosx_deployment_target_osx-arm64.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-arm64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/macosx_deployment_target_osx-arm64.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-arm64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/macosx_deployment_target_osx-arm64.svg)](https://anaconda.org/conda-forge/macosx_deployment_target_osx-arm64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-sdkroot__env__osx--64-green.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sdkroot_env_osx-64.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sdkroot_env_osx-64.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sdkroot_env_osx-64.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-sdkroot__env__osx--arm64-green.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-arm64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sdkroot_env_osx-arm64.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-arm64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sdkroot_env_osx-arm64.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-arm64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sdkroot_env_osx-arm64.svg)](https://anaconda.org/conda-forge/sdkroot_env_osx-arm64) |
 
 Installing osx-sysroot
 ======================
@@ -40,16 +42,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `macosx_deployment_target_osx-64, macosx_deployment_target_osx-arm64` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `macosx_deployment_target_osx-64, macosx_deployment_target_osx-arm64, sdkroot_env_osx-64, sdkroot_env_osx-arm64` can be installed with `conda`:
 
 ```
-conda install macosx_deployment_target_osx-64 macosx_deployment_target_osx-arm64
+conda install macosx_deployment_target_osx-64 macosx_deployment_target_osx-arm64 sdkroot_env_osx-64 sdkroot_env_osx-arm64
 ```
 
 or with `mamba`:
 
 ```
-mamba install macosx_deployment_target_osx-64 macosx_deployment_target_osx-arm64
+mamba install macosx_deployment_target_osx-64 macosx_deployment_target_osx-arm64 sdkroot_env_osx-64 sdkroot_env_osx-arm64
 ```
 
 It is possible to list all of the versions of `macosx_deployment_target_osx-64` available on your platform with `conda`:
