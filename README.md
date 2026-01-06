@@ -147,5 +147,6 @@ Feedstock Maintainers
 =====================
 
 * [@beckermr](https://github.com/beckermr/)
+* [@isuruf](https://github.com/isuruf/)
 * [@xhochy](https://github.com/xhochy/)
 
