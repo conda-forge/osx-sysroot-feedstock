@@ -1,16 +1,17 @@
 schema_version: 1
 
 context:
-  name: osx-sysroot
   version: 1
+  build_number: 6
 
 recipe:
-  name: ${{ name|lower }}
+  name: osx-sysroot
   version: ${{ version }}
 
 build:
-  number: 2
-  skip: true
+  number: ${{ build_number }}
+  skip:
+    - osx and arm64 and match(_MACOSX_DEPLOYMENT_TARGET_, "<11")
 
 outputs:
   - package:
@@ -18,14 +19,28 @@ outputs:
       version: ${{ _MACOSX_DEPLOYMENT_TARGET_ }}
     build:
       noarch: generic
+      script: build_mdt.sh
     requirements:
       run_exports:
         strong:
           - __osx >=${{ _MACOSX_DEPLOYMENT_TARGET_ }}
     tests:
       - script:
-          - echo 1
-    script: build_mdt.sh
+          - "[[ ${MACOSX_DEPLOYMENT_TARGET} == '${{ _MACOSX_DEPLOYMENT_TARGET_ }}' ]]"
+
+  - package:
+      name: sdkroot_env_${{ cross_target_platform }}
+      version: "${{ _MACOSX_DEPLOYMENT_TARGET_ }}"
+    build:
+      noarch: generic
+      script: build_sdkroot_env.sh
+    tests:
+      - requirements:
+          run:
+            - macosx_deployment_target_${{ cross_target_platform }} ${{ _MACOSX_DEPLOYMENT_TARGET_ }} *_${{ build_number }}
+        script:
+          - "[[ ${SDKROOT} == ${CONDA_BUILD_SYSROOT} ]]"
+          - echo ${{ MACOSX_SDK_VERSION }}
 
 about:
   summary: metapackage to set the MACOSX_DEPLOYMENT_TARGET
@@ -36,4 +51,5 @@ about:
 extra:
   recipe-maintainers:
     - beckermr
+    - isuruf
     - xhochy
