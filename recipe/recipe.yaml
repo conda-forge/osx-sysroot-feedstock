@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   version: 1
-  build_number: 6
+  build_number: 7
 
 recipe:
   name: osx-sysroot
@@ -37,7 +37,7 @@ outputs:
     tests:
       - requirements:
           run:
-            - macosx_deployment_target_${{ cross_target_platform }} ${{ _MACOSX_DEPLOYMENT_TARGET_ }} *_${{ build_number }}
+            - macosx_deployment_target_${{ cross_target_platform }} ==${{ _MACOSX_DEPLOYMENT_TARGET_ }} *_${{ build_number }}
         script:
           - "[[ ${SDKROOT} == ${CONDA_BUILD_SYSROOT} ]]"
           - echo ${{ MACOSX_SDK_VERSION }}
