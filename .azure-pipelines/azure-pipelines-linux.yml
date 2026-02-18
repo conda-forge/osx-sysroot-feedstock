@@ -12,56 +12,28 @@ jobs:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.10cross_target_platformosx-64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.10cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.10cross_target_platformosx-arm64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_10.11cross_target_platformosx-64:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.11cross_target_platformosx-64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.11cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.11cross_target_platformosx-arm64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_10.12cross_target_platformosx-64:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.12cross_target_platformosx-64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.12cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.12cross_target_platformosx-arm64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_10.13cross_target_platformosx-64:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.13cross_target_platformosx-64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.13cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.13cross_target_platformosx-arm64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_10.14cross_target_platformosx-64:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.14cross_target_platformosx-64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.14cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.14cross_target_platformosx-arm64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_10.15cross_target_platformosx-64:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.15cross_target_platformosx-64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.15cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.15cross_target_platformosx-arm64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_10.9cross_target_platformosx-64:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.9cross_target_platformosx-64
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64__MACOSX_DEPLOYMENT_TARGET_10.9cross_target_platformosx-arm64:
-        CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_10.9cross_target_platformosx-arm64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64__MACOSX_DEPLOYMENT_TARGET_11.0cross_target_platformosx-64:
@@ -216,7 +188,6 @@ jobs:
         CONFIG: linux_64__MACOSX_DEPLOYMENT_TARGET_26.0cross_target_platformosx-arm64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-    maxParallel: 50
   timeoutInMinutes: 360
   variables: {}
 

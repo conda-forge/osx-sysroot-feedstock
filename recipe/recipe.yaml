@@ -1,22 +1,20 @@
 schema_version: 1
 
 context:
-  version: 1
-  build_number: 6
+  build_number: 7
 
 recipe:
   name: osx-sysroot
-  version: ${{ version }}
+  version: ${{ _MACOSX_DEPLOYMENT_TARGET_ }}
 
 build:
   number: ${{ build_number }}
   skip:
-    - osx and arm64 and match(_MACOSX_DEPLOYMENT_TARGET_, "<11")
+    - cross_target_platform == "osx-arm64" and match(_MACOSX_DEPLOYMENT_TARGET_, "<11")
 
 outputs:
   - package:
       name: macosx_deployment_target_${{ cross_target_platform }}
-      version: ${{ _MACOSX_DEPLOYMENT_TARGET_ }}
     build:
       noarch: generic
       script: build_mdt.sh
@@ -30,14 +28,14 @@ outputs:
 
   - package:
       name: sdkroot_env_${{ cross_target_platform }}
-      version: "${{ _MACOSX_DEPLOYMENT_TARGET_ }}"
     build:
       noarch: generic
       script: build_sdkroot_env.sh
     tests:
       - requirements:
           run:
-            - macosx_deployment_target_${{ cross_target_platform }} ${{ _MACOSX_DEPLOYMENT_TARGET_ }} *_${{ build_number }}
+            # rattler-build fails with pin_subpackage here.
+            - macosx_deployment_target_${{ cross_target_platform }} ==${{ _MACOSX_DEPLOYMENT_TARGET_ }} *_${{ build_number }}
         script:
           - "[[ ${SDKROOT} == ${CONDA_BUILD_SYSROOT} ]]"
           - echo ${{ MACOSX_SDK_VERSION }}
