@@ -34,7 +34,7 @@ outputs:
     tests:
       - requirements:
           run:
-            - ${{ pin_subpackage("macosx_deployment_target_" ~ cross_target_platform }}
+            - ${{ pin_subpackage("macosx_deployment_target_" ~ cross_target_platform) }}
         script:
           - "[[ ${SDKROOT} == ${CONDA_BUILD_SYSROOT} ]]"
           - echo ${{ MACOSX_SDK_VERSION }}
