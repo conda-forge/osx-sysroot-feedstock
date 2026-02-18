@@ -34,7 +34,8 @@ outputs:
     tests:
       - requirements:
           run:
-            - ${{ pin_subpackage("macosx_deployment_target_" ~ cross_target_platform) }}
+            # rattler-build fails with pin_subpackage here.
+            - macosx_deployment_target_${{ cross_target_platform }} ==${{ _MACOSX_DEPLOYMENT_TARGET_ }} *_${{ build_number }}
         script:
           - "[[ ${SDKROOT} == ${CONDA_BUILD_SYSROOT} ]]"
           - echo ${{ MACOSX_SDK_VERSION }}
