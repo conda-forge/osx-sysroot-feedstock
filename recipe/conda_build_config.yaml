@@ -26,6 +26,7 @@ _MACOSX_DEPLOYMENT_TARGET_:
   - "15.4"
   - "15.5"
   - "26.0"
+  - "26.2"
 
 cross_target_platform:
   - osx-64
